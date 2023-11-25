@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Socket.IO chat</title>
+    <style>
+      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #input:focus { outline: none; }
+      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #efefef; }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form id="form">
+        <button onclick="clickW(event)" id="input_w" autocomplete="off">W</button>
+        <button onclick="clickI(event)" id="input_i" autocomplete="off">I</button>
+        <button onclick="clickH(event)" id="input_h" autocomplete="off">H</button>
+        <button onclick="random(event)" id="input_h" autocomplete="off">Randomize</button>
+        <!-- <button>Send</button> -->
+    </form>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        function clickW() {
+            socket.emit("click_w", 1)
+        }
+
+        function clickI() {
+            socket.emit("click_i", 1)
+        }
+
+        function clickH() {
+            socket.emit("click_h", 1)
+        }
+
+        function random(e) {
+            e.preventDefault();
+
+            for (index = 0; index <100; index++) {
+                // for (let index2 = 0; index2 <5; index2++) {
+                //     setTimeout(() => {
+                //         console.log('click W', index)
+                //         clickW()
+                //     }, 5000 * (index+1) + ((index2+1)*50))
+                //     setTimeout(() => {
+                //         console.log('click I', index)
+                //         clickI()
+                //     }, 10000 * (index+1) + ((index2+1)*50))
+                // }
+                
+                setTimeout(() => {
+                    console.log('hadoken')
+                    clickH()
+                }, 5000 * (index+1))
+            }
+        }
+    </script>
+  </body>
+</html>
