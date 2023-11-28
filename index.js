@@ -19,33 +19,19 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('an user connected');
 
-  socket.on('click_w', (msg) => {
-    robot.keyTap("w");
-    console.log('key \'w\' clicked')
+  socket.on('click_up', (msg) => {
+    robot.keyTap("up");
+    console.log('key \'up\' clicked')
   });
 
-  socket.on('click_i', (msg) => {
-    robot.keyTap("i");
-    console.log('key \'i\' clicked')
+  socket.on('click_a', (msg) => {
+    robot.keyTap("a");
+    console.log('key \'a\' clicked')
   });
 
-  socket.on('click_h', (msg) => {
-    setTimeout(() => {
-        setTimeout(() => {
-            robot.keyTap("s");
-            console.log('key \'s\' clicked')
-        }, 50)
-    
-        setTimeout(() => {
-            robot.keyTap("d");
-            console.log('key \'d\' clicked')
-        }, 350)
-    
-        setTimeout(() => {
-            robot.keyTap("i");
-            console.log('key \'i\' clicked')
-        }, 850)
-    }, 1300)
+  socket.on('click_s', (msg) => {
+    robot.keyTap("s");
+    console.log('key \'s\' clicked')
   });
 });
 

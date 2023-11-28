@@ -19,9 +19,9 @@
   <body>
     <ul id="messages"></ul>
     <form id="form">
-        <button onclick="clickW(event)" id="input_w" autocomplete="off">W</button>
-        <button onclick="clickI(event)" id="input_i" autocomplete="off">I</button>
-        <button onclick="clickH(event)" id="input_h" autocomplete="off">H</button>
+        <button onclick="clickUp(event)" id="input_w" autocomplete="off">W</button>
+        <button onclick="clickA(event)" id="input_i" autocomplete="off">I</button>
+        <button onclick="clickS(event)" id="input_h" autocomplete="off">H</button>
         <button onclick="random(event)" id="input_h" autocomplete="off">Randomize</button>
         <!-- <button>Send</button> -->
     </form>
@@ -29,36 +29,36 @@
     <script>
         const socket = io();
 
-        function clickW() {
-            socket.emit("click_w", 1)
+        function clickUp() {
+            socket.emit("click_up", 1)
         }
 
-        function clickI() {
-            socket.emit("click_i", 1)
+        function clickA() {
+            socket.emit("click_a", 1)
         }
 
-        function clickH() {
-            socket.emit("click_h", 1)
+        function clickS() {
+            socket.emit("click_s", 1)
         }
 
         function random(e) {
             e.preventDefault();
 
             for (index = 0; index <100; index++) {
-                // for (let index2 = 0; index2 <5; index2++) {
-                //     setTimeout(() => {
-                //         console.log('click W', index)
-                //         clickW()
-                //     }, 5000 * (index+1) + ((index2+1)*50))
-                //     setTimeout(() => {
-                //         console.log('click I', index)
-                //         clickI()
-                //     }, 10000 * (index+1) + ((index2+1)*50))
-                // }
+                for (let index2 = 0; index2 <5; index2++) {
+                    setTimeout(() => {
+                        console.log('click up', index)
+                        clickUp()
+                    }, 5000 * (index+1) + ((index2+1)*50))
+                    setTimeout(() => {
+                        console.log('click a', index)
+                        clickA()
+                    }, 10000 * (index+1) + ((index2+1)*50))
+                }
                 
                 setTimeout(() => {
-                    console.log('hadoken')
-                    clickH()
+                  console.log('click s', index)
+                    clickS()
                 }, 5000 * (index+1))
             }
         }
