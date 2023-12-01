@@ -41,6 +41,6 @@ io.on('connection', (socket) => {
 
 // Se você entrar no modo de prática
 
-server.listen(3000, () => {
-  console.log('server running at http://localhost:3000');
+server.listen(6001, () => {
+  console.log('server running at http://localhost:6001');
 });
